@@ -1,3 +1,4 @@
+# pylint: disable=C0114,C0116
 
 def solve():
     a = int(input().strip())
