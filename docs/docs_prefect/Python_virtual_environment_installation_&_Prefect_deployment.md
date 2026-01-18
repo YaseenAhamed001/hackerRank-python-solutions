@@ -227,34 +227,44 @@ Deployments allow:
 - Scheduling
 - Parameter overrides
 
-5.1 Create deployment
+**5.1 Create deployment from the directory containing prefect_sample_001.py:**
 
-From the directory containing prefect_sample_001.py:
+- prefect_sample_001.py → file name
+- prefect_sample_001_parallel → flow function
+- default → built-in local pool
 
-prefect deploy prefect_sample_001.py:prefect_sample_001_parallel `
-  --name local-parallel-deployment `
-  --pool default-agent-pool
+**Open another PowerShell window:**
 
+Step 1: Create a local process work pool: `prefect work-pool create default --type process`
 
-Explanation:
+Expected output:
 
-prefect_sample_001.py → file name
+`Created work pool 'default-agent-pool'`
 
-prefect_sample_001_parallel → flow function
+Step 2: Verify work pool exists: `prefect work-pool ls`
 
-default-agent-pool → built-in local pool
 
 You should see:
 
-Deployment 'prefect_sample_001_parallel/local-parallel-deployment' created
+`default   process`
 
-6. Start a Local Worker (Executes Flow Runs)
-6.1 Start worker
+Step 3: Start a worker for that pool: `prefect worker start --pool default`
 
-Open another PowerShell window:
 
-prefect worker start --pool default-agent-pool
+**👉 Keep this terminal running**
 
+**Terminal 03:**
+
+![Terminal 03](../attachments/Python_virtual_environment_installation_%26_Prefect_deployment_003.jpg)
+
+---
+
+Step 4: Re-run deployment (safe to re-run)
+prefect deploy prefect_sample_001.py:prefect_sample_001_parallel `
+  --name local-parallel-deployment `
+  --pool default
+
+prefect worker start --pool default
 
 This worker:
 
@@ -264,7 +274,7 @@ Runs flows triggered via UI or CLI
 
 👉 Keep this terminal running
 
-7. Run the Flow from Prefect UI
+1. Run the Flow from Prefect UI
 7.1 Open UI
 
 Browser:
