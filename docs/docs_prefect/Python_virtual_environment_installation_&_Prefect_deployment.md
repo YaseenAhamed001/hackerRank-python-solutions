@@ -189,7 +189,8 @@ What happens:
 
 **Terminal 01:**
 
-![Python virtual environment installation](https://raw.githubusercontent.com/YaseenAhamed001/hackerRank-python-solutions/main/docs/attachments/Python_virtual_environment_installation_%26_Prefect_deployment_001.jpg)
+![Terminal 01](../attachments/Python_virtual_environment_installation_%26_Prefect_deployment_001.jpg)
+
 
 ---
 **3. Configure Prefect to Use the Local Server**
@@ -202,6 +203,10 @@ What happens:
 
 
 3.4 Verify: `prefect config view`
+
+**Terminal 02:**
+
+![Terminal 02](../attachments/Python_virtual_environment_installation_%26_Prefect_deployment_002.jpg)
 
 ---
 **4. Run the Flow Directly (Local Execution – No Deployment)**
