@@ -187,6 +187,10 @@ What happens:
 
 **👉 Keep this terminal running**
 
+**Terminal 01:**
+
+![Python virtual environment installation](https://raw.githubusercontent.com/YaseenAhamed001/hackerRank-python-solutions/main/docs/attachments/Python_virtual_environment_installation_%26_Prefect_deployment_001.jpg)
+
 ---
 **3. Configure Prefect to Use the Local Server**
 
