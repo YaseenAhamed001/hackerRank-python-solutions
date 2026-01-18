@@ -259,97 +259,16 @@ Step 3: Start a worker for that pool: `prefect worker start --pool default`
 
 ---
 
-Step 4: Re-run deployment (safe to re-run)
-prefect deploy prefect_sample_001.py:prefect_sample_001_parallel `
-  --name local-parallel-deployment `
-  --pool default
+**Step 4: Re-run deployment (safe to re-run)**
+To schedule a run for this deployment, use the following command:
 
-prefect worker start --pool default
+`prefect deployment run 'prefect_sample_001_parallel/local-parallel-deployment'`
 
-This worker:
-
-Executes tasks locally
-
-Runs flows triggered via UI or CLI
-
-👉 Keep this terminal running
-
-1. Run the Flow from Prefect UI
-7.1 Open UI
-
-Browser:
-
-http://127.0.0.1:4200
-
-7.2 Trigger flow
-
-Go to Deployments
-
-Click prefect_sample_001_parallel / local-parallel-deployment
-
-Click Run
-
-(Optional) Modify jobs parameter
-
-Click Run
-
-7.3 Observe
-
-Parallel task execution
-
-Task dependency behavior
-
-Logs streamed in real-time
-
-8. Run the Deployment from PowerShell (CLI)
-prefect deployment run prefect_sample_001_parallel/local-parallel-deployment
+- Open UI, browser:  http://127.0.0.1:4200
 
 
-Optional parameter override:
+**Terminal 03:**
 
-prefect deployment run prefect_sample_001_parallel/local-parallel-deployment `
-  --params '{"jobs":[["a","1"],["b","2"],["c","3"],["d","4"],["e","5"],["f","6"],["g","7"]]}'
+![Terminal 03](../attachments/Python_virtual_environment_installation_%26_Prefect_deployment_Prefect_Run.jpg)
 
-9. Expected Parallel Behavior (Your Flow Logic)
-Tasks	Behavior
-t1, t2, t3	Run in parallel
-t4, t5	Wait for t1–t3
-t6, t7	Independent parallel execution
-
-Each task sleeps 10 seconds, so total runtime confirms concurrency.
-
-10. Common Troubleshooting
-UI shows flow but nothing runs
-
-➡ Worker not running
-
-prefect worker start --pool default-agent-pool
-
-API connection error
-
-➡ Check API URL
-
-prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api
-
-Flow not visible
-
-➡ Ensure deployment created successfully
-
-prefect deployment ls
-
-11. Minimal Architecture (Local)
-PowerShell 1 → prefect server start
-PowerShell 2 → prefect worker start
-PowerShell 3 → deploy / run flows
-Browser     → Prefect UI
-
-
-If you want, I can next:
-
-Add task concurrency limits
-
-Convert this to Docker-based execution
-
-Add schedules
-
-Add retries, caching, or state handling
+---
