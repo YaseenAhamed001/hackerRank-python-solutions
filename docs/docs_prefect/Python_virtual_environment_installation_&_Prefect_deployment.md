@@ -260,15 +260,15 @@ Step 3: Start a worker for that pool: `prefect worker start --pool default`
 ---
 
 **Step 4: Re-run deployment (safe to re-run)**
-To schedule a run for this deployment, use the following command:
+To re-run for this deployment, use the following command:
 
 `prefect deployment run 'prefect_sample_001_parallel/local-parallel-deployment'`
 
 - Open UI, browser:  http://127.0.0.1:4200
 
 
-**Terminal 03:**
+**Prefect Run UI:**
 
-![Terminal 03](../attachments/Python_virtual_environment_installation_%26_Prefect_deployment_Prefect_Run.jpg)
+![Prefect Run UI](../attachments/Python_virtual_environment_installation_%26_Prefect_deployment_Prefect_Run.jpg)
 
 ---
